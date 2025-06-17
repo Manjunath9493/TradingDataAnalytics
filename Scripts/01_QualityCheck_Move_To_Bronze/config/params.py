@@ -1,0 +1,9 @@
+RawDataPath = "/mnt/rawdata/"
+source_path = "/mnt/rawdata/*.csv"
+Logpath = "/mnt/bronze/logs/dq_summary"
+Log_format = "delta"
+LogRetentionPrd = 30
+DataRetentionPrd = 365
+LoadingDatapath = "/mnt/bronze/stock_data"
+LoadingDataFormat = "Delta"
+Logmode = "append"  
