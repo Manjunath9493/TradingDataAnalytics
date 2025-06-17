@@ -1,9 +1,9 @@
-# Trading Data Analytics Pipeline (Raw → Bronze → Silver → Gold)
+### Trading Data Analytics Pipeline (Raw → Bronze → Silver → Gold)
 
 A fully modularized, end-to-end data engineering pipeline built with PySpark, Azure Databricks, Azure Data Factory (ADF), Azure KeyVault and Azure Data Lake Storage (ADLS).  
 This project is structured for real-world, production-ready deployment and demonstrates advanced ETL orchestration, data transformation, and layered architecture.
 
-# Tech Stack
+### Tech Stack
 
 - PySpark (Distributed Data Processing)
 - Azure Data Factory (Pipeline Orchestration)
@@ -11,7 +11,7 @@ This project is structured for real-world, production-ready deployment and demon
 - Databricks (Cluster Execution)
 - GitHub (Version Control & Deployment Ready)
 
-# Project Architecture
+### Project Architecture
 
         ┌────────────┐        ┌─────────────┐        ┌─────────────┐        ┌────────────┐
         │ Raw Layer  │──────▶│ Bronze Layer│ ──────▶│ Silver Layer│──────▶│ Gold Layer │
