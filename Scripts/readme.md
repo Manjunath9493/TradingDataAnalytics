@@ -1,4 +1,4 @@
-### RawData.py
+### 00_WriteRawDataToRawDataFolder/RawData.py
 Ingests historical OHLC stock data from the AngelOne SmartAPI using secure credentials stored in Azure KeyVault. 
 Converts data into Spark DataFrames and writes it to the Raw Layer in ADLS in CSV format.
 
@@ -7,7 +7,7 @@ Converts data into Spark DataFrames and writes it to the Raw Layer in ADLS in CS
 - Fetches 1 year data for each stock and stores data Rawdata container in ADLS
 
 
-### BronzeData.py
+### 01_QualityCheck_Move_To_Bronze/BronzeData.py
 Performs quality checks on raw data and moves it to the Bronze Layer.
 
 - Quality Checks like number of nulls in each column, duplicates, zero/-ve valued stock data, invalid rows like high < low, open>high etc
@@ -18,7 +18,7 @@ Performs quality checks on raw data and moves it to the Bronze Layer.
 
 ---
 
-### SilverData.py
+### 02_TransformingData_N_Move_To_Silver/SilverData.py
 Transforms Bronze data by renaming and standardizing columns
 
 - read data from bronze layer 
@@ -29,7 +29,7 @@ Transforms Bronze data by renaming and standardizing columns
 
 ---
 
-### GoldData.py
+### 03_Calculations_for_Gold_layer/GoldData.py
 Performs final calculations and feature engineering for downstream analytics or modeling.
 
 - Calculated moving averages, RSI, 9Ma on RSI and 3-month returns
