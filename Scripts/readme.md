@@ -6,6 +6,7 @@ Converts data into Spark DataFrames and writes it to the Raw Layer in ADLS in CS
 - Connects via TOTP-authenticated API
 - Fetches 1 year data for each stock and stores data Rawdata container in ADLS
 
+---
 
 ### 01_QualityCheck_Move_To_Bronze/BronzeData.py
 Performs quality checks on raw data and moves it to the Bronze Layer.
