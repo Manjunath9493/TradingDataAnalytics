@@ -1,3 +1,7 @@
+dbutils.fs.cp(abfss://scripts@adlsstoragetradingdata.dfs.core.windows.net/requirements.txt", "dbfs:/FileStore/tables/requirements.txt")
+from lib.install_packages import install_packages
+install_packages()
+
 from pyspark.sql import SparkSession
 from SmartApi import SmartConnect
 import pyotp
@@ -17,9 +21,6 @@ from modules.StockDataExtractor import ForLoopForStockData
 from modules.write import WriteRawInputCSVFiles
 from modules.extract import GetHistoricalOHLCData
 from modules.EmptyDfForStockData import EmptyDfForStockData
-
-from lib.install_packages import install_packages
-install_packages()
 
 data = Create_AngelOne_Connection(api_key, client_code, password, totp_key)
 spark = getSparkSession("RawData")
