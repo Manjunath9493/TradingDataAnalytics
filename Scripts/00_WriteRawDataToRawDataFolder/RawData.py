@@ -1,4 +1,4 @@
-dbutils.fs.cp(abfss://scripts@adlsstoragetradingdata.dfs.core.windows.net/requirements.txt", "dbfs:/FileStore/tables/requirements.txt")
+dbutils.fs.cp("abfss://scripts@adlsstoragetradingdata.dfs.core.windows.net/requirements.txt", "dbfs:/FileStore/tables/requirements.txt")
 from lib.install_packages import install_packages
 install_packages()
 
