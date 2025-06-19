@@ -1,5 +1,5 @@
 dbutils.fs.cp("abfss://scripts@adlsstoragetradingdata.dfs.core.windows.net/requirements.txt", "dbfs:/FileStore/tables/requirements.txt")
-from lib.install_packages import install_packages
+from lib.install_libraries import install_packages
 install_packages()
 
 from pyspark.sql import SparkSession
