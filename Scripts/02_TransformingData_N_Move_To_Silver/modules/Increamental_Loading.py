@@ -1,3 +1,5 @@
+from delta.tables import DeltaTable
+
 def increamental_load(LoadingPath, LoadFormat, loadingDF):     
     try:
         dbutils.fs.ls(LoadingPath)

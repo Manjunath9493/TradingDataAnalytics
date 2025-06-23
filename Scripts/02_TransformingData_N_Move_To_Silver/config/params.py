@@ -1,4 +1,4 @@
 DataRetentionPrd = 365
-sourcePath = "/mnt/bronze/stock_data/"
+sourcePath = "abfss://trading-data@adlsstoragetradingdata.dfs.core.windows.net/bronze/stock_data"
 dataFormat = "delta"
-silver_data_path = "/mnt/silver/silver_layer_stockdata"
+silver_data_path = "abfss://trading-data@adlsstoragetradingdata.dfs.core.windows.net/silver/silver_layer_stockdata"

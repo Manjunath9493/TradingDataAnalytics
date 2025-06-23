@@ -10,21 +10,21 @@ from pyspark.sql.window import Window
 
 from config.SparkSession import getSparkSession
 from config.params import DataRetentionPrd, SourceFormat, SourcePath, TargetFormat, Target_all_data_path, Target_close_90D_ago, Target_previous_day_data, Target_Final_data
+from config.configure_adls import configure_adls_oauth
 
 from modules.Read import read
 from modules.dmas_calculation import dmas_calculation
 from modules.rsi_calculation import rsi_calculation
 from modules.rsi_9dma_calculation import rsi_9dma_calculation
+from modules.Increamental_Loading import increamental_load
 from modules.Dateparts import DateParts
 from modules.Closes_90D_ago import Closes_90D_ago
 from modules.Three_month_returns_Calculation import Three_month_returns_Calculation
 from modules.previous_day_data import previous_day_data
 
 spark = getSparkSession("Calculations")
+configure_adls_oauth(spark)
 df = read(SourceFormat,SourcePath)
-
-from lib.install_packages import install_packages
-install_packages()
 
 # Calculation Functions
 df1_dmas = dmas_calculation(df)

@@ -8,17 +8,16 @@ from pyspark.sql.window import Window
 from pyspark.sql.functions import regexp_replace
 
 from config.SparkSession import getSparkSession
-from cofig.params import DataRetentionPrd, sourcePath, dataFormat, silver_data_path
+from config.params import DataRetentionPrd, sourcePath, dataFormat, silver_data_path
+from config.configure_adls import configure_adls_oauth
 
 from modules.Read import read
 from modules.transform_data import Transform_Data
 from modules.Increamental_Loading import increamental_load
 from modules.DataCleanup import dataCleanup
 
-from lib.install_packages import install_packages
-install_packages()
-
 spark = getSparkSession("Transform_Data")
+configure_adls_oauth(spark)
 df = read(dataFormat,sourcePath)
 transformed_df = Transform_Data(df)
 
