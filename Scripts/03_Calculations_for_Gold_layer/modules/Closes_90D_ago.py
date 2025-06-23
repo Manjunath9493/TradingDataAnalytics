@@ -1,6 +1,6 @@
 from datetime import date, timedelta, datetime
 from pyspark.sql.window import Window
-
+from pyspark.sql.functions import *
 def Closes_90D_ago(df8):    
     try:
         date_90D_ago_upper =  date.today()-timedelta(days=90)
