@@ -19,11 +19,17 @@ from modules.DataCleanup import dataCleanup
 spark = getSparkSession("Transform_Data")
 configure_adls_oauth(spark)
 df = read(dataFormat,sourcePath)
+print(f"{df.count()} rows read successfully")
+
 transformed_df = Transform_Data(df)
+print("Removed 'EQ' from stock name")
 
 LoadingPath = silver_data_path
 LoadFormat = dataFormat
 loadingDF = transformed_df
 increamental_load(LoadingPath, LoadFormat, loadingDF)
+print("Loaded transformed data successfully")
 
 dataCleanup(DataRetentionPrd, LoadingPath, LoadFormat)
+print("Removed data older than 365 days")
+
