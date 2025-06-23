@@ -1,3 +1,8 @@
+from pyspark.sql.types import *
+from pyspark.sql import Row
+from datetime import datetime
+from config.SparkSession import getSparkSession
+spark = getSparkSession("QualityCheck")
 def QualityCheckLogging(df,Logpath,Logformat,Logmode):
     try:
         Zero_or_negative_valued_rows = df.filter((col("Open")<=0) | (col("High")<=0) | (col("Close")<=0) | (col("Low")<=0) | (col("Volume")<=0)).count()  
@@ -8,9 +13,6 @@ def QualityCheckLogging(df,Logpath,Logformat,Logmode):
         print(f"An Error occured during quality check: {e}")
     
     try:        
-        from pyspark.sql.types import *
-        from pyspark.sql import Row
-        from datetime import datetime
         schema = StructType([
             StructField("run_date", StringType(), True),
             StructField("step_name", StringType(), True),

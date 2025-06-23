@@ -1,3 +1,5 @@
+from config.SparkSession import getSparkSession
+spark = getSparkSession("QualityCheck")
 def logCleanup(LogRetentionPrd, Logpath, Log_format):
     try:
         from datetime import date, timedelta, datetime

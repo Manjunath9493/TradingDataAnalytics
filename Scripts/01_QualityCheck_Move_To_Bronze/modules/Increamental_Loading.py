@@ -1,4 +1,14 @@
+from config.SparkSession import getSparkSession
+spark = getSparkSession("QualityCheck")
+from delta.tables import DeltaTable
 def increamental_load(LoadingPath, LoadFormat, loadingDF):     
+    try:
+        import IPython
+        dbutils = IPython.get_ipython().user_ns["dbutils"]
+    except:
+        from pyspark.dbutils import DBUtils
+        dbutils = DBUtils(spark)
+            
     try:
         dbutils.fs.ls(LoadingPath)
         path_exists = True
